@@ -15,7 +15,7 @@ document.body.addEventListener("click", function (evt) {
       reset.hidden = true;
     } else {
       pause();
-
+      reset.hidden = false;
       isStarted = false;
       totalTime += split;
     }
