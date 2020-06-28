@@ -7,15 +7,15 @@ let isStarted = false;
 
 document.body.addEventListener("click", function (evt) {
   // Do nothng if a button is clicked, in this case the reset button
-  if (evt.path[0].localName !== "button") {
+  if (evt.path[0].localName !== "svg") {
     if (!isStarted) {
       startTime = Date.now();
       start();
       isStarted = true;
-      reset.hidden = true;
+      reset.style.display = "none";
     } else {
       pause();
-      reset.hidden = false;
+      reset.style.display = "block";
       isStarted = false;
       totalTime += split;
     }
