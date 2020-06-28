@@ -6,8 +6,8 @@ let totalTime = 0;
 let isStarted = false;
 
 document.body.addEventListener("click", function (evt) {
-  // Do nothng if a button is clicked, in this case the reset button
-  if (evt.path[0].localName !== "svg") {
+  // Do nothng if a svg or path is clicked, in this case the reset svg and path
+  if (evt.path[0].localName !== "svg" && evt.path[0].localName !== "path") {
     if (!isStarted) {
       startTime = Date.now();
       start();
