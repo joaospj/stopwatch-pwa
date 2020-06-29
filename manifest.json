@@ -3,7 +3,7 @@
   "short_name": "Stopwatch PWA",
   "description": "A simple and minimalist stopwatch PWA.",
   "categories": ["utilities", "fitness"],
-  "start_url": ".",
+  "start_url": "https://joaospj.github.io/stopwatch-pwa/",
   "display": "standalone",
   "background_color": "#333",
   "theme_color": "#333",
