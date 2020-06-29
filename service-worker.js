@@ -11,8 +11,6 @@ const assets = [
 ];
 //
 self.addEventListener("install", (evt) => {
-  console.log("Caching all assets");
-
   evt.waitUntil(
     caches.open(cacheName).then((cache) => {
       return cache.addAll(assets);
@@ -21,7 +19,6 @@ self.addEventListener("install", (evt) => {
 });
 
 self.addEventListener("activate", (evt) => {
-  //console.log("Activated", evt);
   evt.waitUntil(
     caches.keys().then((keys) => {
       console.log(keys);
@@ -34,7 +31,6 @@ self.addEventListener("activate", (evt) => {
 });
 
 self.addEventListener("fetch", (evt) => {
-  // console.log("Fetch event", evt);
   evt.respondWith(
     caches.match(evt.request).then((res) => {
       return res || fetch(evt.request);
