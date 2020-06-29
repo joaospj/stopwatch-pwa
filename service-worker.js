@@ -1,4 +1,4 @@
-const cacheName = "my-cache";
+const cacheName = "my-cache-v1";
 const assets = [
   "/",
   "/index.html",
@@ -7,8 +7,9 @@ const assets = [
   "/manifest.json",
   "/images/icons/favicon.ico",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap",
+  "https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1MmgVxIIzIXKMny.woff2",
 ];
-
+//
 self.addEventListener("install", (evt) => {
   console.log("Caching all assets");
 
@@ -20,7 +21,16 @@ self.addEventListener("install", (evt) => {
 });
 
 self.addEventListener("activate", (evt) => {
-  console.log("Activated", evt);
+  //console.log("Activated", evt);
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      console.log(keys);
+
+      return Promise.all(
+        keys.filter((key) => key !== cacheName).map((key) => caches.delete(key))
+      );
+    })
+  );
 });
 
 self.addEventListener("fetch", (evt) => {
