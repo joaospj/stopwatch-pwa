@@ -21,8 +21,6 @@ self.addEventListener("install", (evt) => {
 self.addEventListener("activate", (evt) => {
   evt.waitUntil(
     caches.keys().then((keys) => {
-      console.log(keys);
-
       return Promise.all(
         keys.filter((key) => key !== cacheName).map((key) => caches.delete(key))
       );
