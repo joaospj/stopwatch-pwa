@@ -2,7 +2,7 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/service-worker.js", { scope: "/" })
+      .register("/service-worker.js", { scope: "/stopwatch-pwa" })
       .then((reg) => {
         console.log("Service worker registered.", reg);
       })
